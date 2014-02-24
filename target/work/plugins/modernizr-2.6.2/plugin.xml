@@ -1,0 +1,23 @@
+<plugin name='modernizr' version='2.6.2' grailsVersion='1.3 &gt; *'>
+  <author>Konstantinos Kostarellis</author>
+  <authorEmail>kosta.grails@gmail.com</authorEmail>
+  <title>Modernizr for Grails</title>
+  <description>Plugin that provides the JavaScript library Modernizr. Modernizr helps you build the next generation of HTML5 and CSS3-powered websites.
+It integrates nicely with the resources plugin.
+</description>
+  <documentation>http://grails.org/plugin/modernizr</documentation>
+  <type>ModernizrGrailsPlugin</type>
+  <resources>
+    <resource>ModernizrResources</resource>
+    <resource>modernizr.ModernizrTagLib</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies />
+  <plugins />
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>

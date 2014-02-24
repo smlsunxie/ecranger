@@ -1,0 +1,212 @@
+/*------------------- tagit ---------------------*/
+/* line 514, ../sass/screen.scss */
+ul#tag-field {
+  padding: 0;
+  margin: 0 0 0px 0px;
+}
+
+/*------------------- breadcrumb button ---------------------*/
+/* line 520, ../sass/screen.scss */
+input.btn {
+  float: left;
+  margin-left: 0px;
+}
+
+/* line 524, ../sass/screen.scss */
+.qq-upload-drop-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 50;
+  z-index: 2;
+  background: #FF9797;
+  text-align: center;
+}
+
+/* PAGINATION */
+
+.pagination {
+  border-top: 0;
+  margin: 0;
+  padding: 0.3em 0.2em;
+  text-align: center;
+/*     -moz-box-shadow: 0 0 3px 1px #AAAAAA;
+  -webkit-box-shadow: 0 0 3px 1px #AAAAAA;
+          box-shadow: 0 0 3px 1px #AAAAAA;*/
+  /*background-color: #EFEFEF;*/
+}
+
+.pagination a,
+.pagination .currentStep {
+  color: #666666;
+  display: inline-block;
+  margin: 0 0.1em;
+  padding: 0.25em 0.7em;
+  text-decoration: none;
+     -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+          border-radius: 0.3em;
+}
+
+.pagination a:hover, .pagination a:focus,
+.pagination .currentStep {
+  background-color: #999999;
+  color: #ffffff;
+  outline: none;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.no-borderradius .pagination a:hover, .no-borderradius .pagination a:focus,
+.no-borderradius .pagination .currentStep {
+  background-color: transparent;
+  color: #444444;
+  text-decoration: underline;
+}
+
+
+
+#breadcrumb input.form-control{
+  margin-top: 5px;
+  width: 120px;
+}
+
+
+#actionbar{
+  margin-bottom: 10px;
+}
+
+form select{
+  width: 285px;
+}
+
+.select2-container{
+  width: 285px;
+
+}
+
+.block-stick-img {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    width: 222px;
+}
+
+.event{
+  font-size: 16px; 
+  text-align: left;
+
+}
+
+
+.stick_outside {
+    padding: 0px 15px 0px 15px;
+    text-align: center;
+    width: 240px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.stick {
+    padding: 20px 30px 25px 30px;
+    width: 188px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+form.form-thumbnail {
+  margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 800px) {
+  
+  /* Force table to not be like tables anymore */
+  #no-more-tables table, 
+  #no-more-tables thead, 
+  #no-more-tables tbody, 
+  #no-more-tables th, 
+  #no-more-tables td, 
+  #no-more-tables tr { 
+    display: block; 
+  }
+ 
+  /* Hide table headers (but not display: none;, for accessibility) */
+  #no-more-tables thead tr { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+ 
+  #no-more-tables tr { border: 1px solid #ccc; }
+ 
+  #no-more-tables td { 
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+    padding-left: 50%; 
+    white-space: normal;
+    text-align:left;
+  }
+ 
+  #no-more-tables td:before { 
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;
+    text-align:left;
+    font-weight: bold;
+  }
+ 
+  /*
+  Label the data
+  */
+  #no-more-tables td:before { content: attr(data-title); }
+}
+
+
+#years_month, #years_year, #date_month, #date_day, #date_year  {
+  display: block;
+  width: 100%;
+  /*height: 294px;*/
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+#productStick {
+  margin-bottom: 20px;
+  padding-left: 0px;
+  padding-right: 5px;
+}
+
+#eventStick {
+  padding-left: 0px;
+  padding-right: 5px;
+}
+
+#eventContentTable{
+  margin-top: 7px; 
+}
+#tagGroup.nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: green;
+}
+
+#alert_placeholder{
+  color: #2773ae;
+}

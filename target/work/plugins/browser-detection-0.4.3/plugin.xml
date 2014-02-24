@@ -1,0 +1,23 @@
+<plugin name='browser-detection' version='0.4.3' grailsVersion='1.2.2 &gt; *'>
+  <author>Gennady Tsarik</author>
+  <authorEmail>vare6gin@gmail.com</authorEmail>
+  <title>Browser detection</title>
+  <description>\
+This plugin provides service and tag library for browser detection. You can know what is the browser, version, operating system and language specified in request headers.
+</description>
+  <documentation>http://grails.org/plugin/browser-detection</documentation>
+  <type>BrowserDetectionGrailsPlugin</type>
+  <resources>
+    <resource>org.geeks.browserdetection.UserAgentIdentService</resource>
+    <resource>org.geeks.browserdetection.WebTierService</resource>
+    <resource>org.geeks.browserdetection.BrowserTagLib</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies />
+  <plugins />
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>

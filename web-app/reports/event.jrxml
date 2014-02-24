@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="event" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" scriptletClass="motoranger.QRCodeScriptlet" uuid="9637a67f-82f0-46a8-a6a3-018ff713150d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="133"/>
+	<parameter name="event_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select
+
+user.username,
+user.title as user_title,
+user.telphone as user_telphone,
+user.mobile as user_mobile,
+
+product.name as product_name,
+product.title as product_title,
+product.mileage,
+
+event.date,
+event.total_price,
+
+
+event_detail.price,
+event_detail.qty,
+
+part.title as part_title,
+store.title as store_title,
+store.address,
+store.telphone as store_telphone,
+store.mobile as store_mobile,
+
+
+event.id as event_id,
+part.id as part_id,
+product.id as product_id,
+user.id as user_id
+
+
+
+from event
+inner join product on event.product_id = product.id
+left join user on product.user_id = user.id
+left join event_detail on event.id = event_detail.head_id
+left join store on event.store_id = store.id
+inner join part on part.id = event_detail.part_id
+
+where event.id=$P{event_id}]]>
+	</queryString>
+	<field name="username" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_title" class="java.lang.String"/>
+	<field name="user_telphone" class="java.lang.String"/>
+	<field name="user_mobile" class="java.lang.String"/>
+	<field name="product_name" class="java.lang.String"/>
+	<field name="product_title" class="java.lang.String"/>
+	<field name="mileage" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_price" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="price" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="part_title" class="java.lang.String"/>
+	<field name="store_title" class="java.lang.String"/>
+	<field name="address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="store_telphone" class="java.lang.String"/>
+	<field name="store_mobile" class="java.lang.String"/>
+	<field name="event_id" class="java.lang.Long"/>
+	<field name="part_id" class="java.lang.Long"/>
+	<field name="product_id" class="java.lang.Long"/>
+	<field name="user_id" class="java.lang.Long"/>
+	<variable name="event_qrcode" class="java.awt.image.BufferedImage"/>
+	<variable name="product_qrcode" class="java.awt.image.BufferedImage"/>
+	<variable name="user_qrcode" class="java.awt.image.BufferedImage"/>
+	<variable name="index_qrcode" class="java.awt.image.BufferedImage"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="199" y="21" width="157" height="30" uuid="2ca7740c-1f20-4e90-b884-2906549967ed"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[維修總表]]></text>
+			</staticText>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="443" y="33" width="94" height="20" uuid="f12857eb-1ad1-4f13-ad67-8399aee3a828"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="58" width="94" height="20" uuid="9c2bf86c-3bc0-46c0-8be1-327eac28fb7d"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_price}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="384" y="33" width="59" height="20" uuid="5dc7029a-a105-4a87-94ad-c764aceba6a5"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[維修日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="58" width="59" height="20" uuid="59a6f630-08b7-4527-bad9-877c70824e33"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[維修總價]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="86" width="520" height="1" uuid="dda68391-0d8b-4b11-94ed-116604e83690"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="3" y="72" width="157" height="12" uuid="af4bec30-b569-424d-81e0-d613ca7246b2"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[http://motoranger.net]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="199" y="4" width="157" height="17" uuid="e931f91a-9df5-42cb-82cd-46b68ad39a8b"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[雲端 MOTO 維修記錄]]></text>
+			</staticText>
+			<image scaleImage="RetainShape">
+				<reportElement x="45" y="-8" width="80" height="80" uuid="3884457c-9f1a-461e-ae6a-c3cd17ed1010"/>
+				<imageExpression><![CDATA[$V{index_qrcode}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="242" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="76" y="36" width="197" height="20" uuid="1bb31ae3-ccc8-4016-a94e-ffff86916bdb"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{username}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="76" y="60" width="197" height="20" uuid="330047ea-c0c4-46c6-a340-0d7e3f0707b8"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_title}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="344" y="36" width="193" height="20" uuid="bce32a76-6171-44b2-a8c4-35350a7eefee"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_telphone}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="344" y="60" width="193" height="20" uuid="638e5242-ccc2-4990-acbe-11b231e21134"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_mobile}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="344" y="127" width="193" height="20" uuid="7090cff0-61d7-4e1b-9699-86414061aa8b"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{store_title}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="344" y="151" width="193" height="20" uuid="46b975d7-6f88-419e-8f9d-1545755d85d9"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{store_telphone}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="344" y="175" width="193" height="39" uuid="1e163a66-74f7-4bb1-8b01-7aa3ea74a04d"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="36" width="59" height="20" uuid="12f050d1-1564-46b0-9652-7e2b7b145145"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[客戶編號]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="60" width="59" height="20" uuid="f5dd9c4d-a97b-46cd-a670-a87698d1b534"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[客戶名稱]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="127" width="59" height="20" uuid="d8b11d1c-ae6c-4710-a641-e8e443507e81"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[店名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="175" width="59" height="20" uuid="20a77a2a-a728-4ff0-88e3-aa8e2bc2beeb"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[地址]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="151" width="59" height="20" uuid="e56bb6d5-4e67-4fb6-9a38-c41bb2c6134a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[電話]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="36" width="61" height="20" uuid="beaeb2a1-a3f9-47ca-b85f-9fcd73a7df00"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[電話]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="60" width="61" height="20" uuid="5d9b7d22-f5bd-4035-a7f8-6ba3ddf7de8a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[手機]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="34" width="520" height="1" uuid="fde1aeb3-c2ff-4330-8c82-ec18a7929d17"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="17" y="8" width="253" height="24" uuid="cd13ca5e-fd37-4321-90cd-d77b70616abc"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[顧客資訊]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="98" width="254" height="24" uuid="af5d1628-49e0-4b9e-a8c2-4b9974499382"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[維修店家]]></text>
+			</staticText>
+			<line>
+				<reportElement x="283" y="125" width="251" height="1" uuid="cfad0716-e8cc-437d-8757-3ad71bed0718"/>
+			</line>
+			<staticText>
+				<reportElement x="17" y="214" width="226" height="24" uuid="f8bee008-4c4e-4701-a0f5-b1144314a930"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[維修項目]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="241" width="520" height="1" uuid="76ec6f33-e58d-48d1-9046-81481089e1b4"/>
+			</line>
+			<staticText>
+				<reportElement x="17" y="175" width="59" height="20" uuid="ec5f1869-2c48-48c1-a6f5-d50ad23d89bc"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[里程]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="125" width="253" height="1" uuid="d90c6dee-cb56-4d3e-a6ad-5ab6cbf957d6"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="76" y="175" width="197" height="20" uuid="d4ebcbfb-3308-4786-96fe-fbfbec7dc186"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mileage}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="76" y="151" width="197" height="20" uuid="62eb1aff-16ac-42a0-840d-d587006f9a7b"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_title}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="127" width="59" height="20" uuid="69a7fd0c-bfd4-461b-9f14-d44219ca03fc"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[車牌]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="151" width="59" height="20" uuid="317019e3-5169-4ce6-abbd-04d2d102bdac"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[車名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="98" width="256" height="24" uuid="b2e5b48d-0bcc-45dd-92d1-b9f26751244a"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[產品資訊]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="76" y="127" width="197" height="20" uuid="13dd1e9f-1f5b-45b6-b867-25f2c3d0e014"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="2" width="242" height="20" uuid="c1af2994-b2bc-4c21-a273-e017bdec5fc9"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[名稱]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="2" width="100" height="20" uuid="008b305f-266b-4f21-b69c-50ecdb97704d"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[數量]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="2" width="153" height="20" uuid="8656c44a-c6fc-48bb-899d-19de8195c827"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[價錢]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="25" width="520" height="1" uuid="a7fcf3f1-7d78-49ad-a598-4e6d0b965dba"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="17" y="6" width="242" height="20" uuid="536fa45e-7f1c-40a4-b9bd-6ed63fdeb55d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{part_title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="6" width="100" height="20" uuid="3f4fced6-f765-48d7-8d09-91494c95ddb4"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="6" width="153" height="20" uuid="cc7d5af9-40cd-40a2-9b63-5cb7b43f0994"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="17" y="28" width="520" height="1" uuid="5a99a24b-7ef7-4ce8-87c8-1a7c63307796"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="176" splitType="Stretch">
+			<textField hyperlinkType="Reference">
+				<reportElement x="10" y="147" width="145" height="29" forecolor="#0000FF" uuid="543fade7-0cd6-4494-9c18-882688422628"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="14" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["查看維修事件"]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA["http://motoranger.net/event/show/"+$F{event_id}]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField hyperlinkType="Reference">
+				<reportElement x="199" y="147" width="145" height="29" forecolor="#0000FF" uuid="7a3fe062-aea2-4ed0-bf78-a5fbfd9e2bb4">
+					<printWhenExpression><![CDATA[$F{user_id}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="14" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["查看客戶詳細資料"]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA["http://motoranger.net/user/show/"+$F{user_id}]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField hyperlinkType="Reference">
+				<reportElement x="400" y="147" width="145" height="29" forecolor="#0000FF" uuid="6112caba-6cc4-447b-b161-dbaf40d179be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="14" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["查看產品維修歷程"]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA["http://motoranger.net/product/show/"+$F{product_id}]]></hyperlinkReferenceExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="2" width="145" height="145" uuid="8b2aee82-323a-4fbc-a22a-c0bdabd1966d"/>
+				<imageExpression><![CDATA[$V{event_qrcode}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="199" y="2" width="145" height="145" uuid="c73f7027-5169-4eea-b042-1cc157d8e509"/>
+				<imageExpression><![CDATA[$V{user_qrcode}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="400" y="2" width="145" height="145" uuid="743dce9e-dd79-4087-9ded-a649cf75dc07"/>
+				<imageExpression><![CDATA[$V{product_qrcode}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
