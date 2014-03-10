@@ -1,7 +1,0 @@
-DefaultPackage
-grails-app.conf
-grails-app.controllers.com.grailsrocks.functionaltest.controllers
-scripts
-src.groovy.functionaltestplugin
-test.functional
-test.unit

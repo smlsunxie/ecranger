@@ -160,12 +160,12 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://motoranger.net"
+        grails.serverURL = "http://ecranger.net"
         //grails.serverURL = "http://dev.codecanaan.com:8080"
 
         // Using baseurl feature to enable CDN deployment
         grails.resources.mappers.baseurl.enabled = true
-        grails.resources.mappers.baseurl.default = "http://cdn.motoranger.net/static"
+        grails.resources.mappers.baseurl.default = "http://cdn.ecranger.net/static"
 
         grails.aws.root = 'attachment'
         google.analytics.enabled = true
@@ -185,7 +185,7 @@ google.analytics.webPropertyID = "UA-39903264-1"
 
 
 // disqus
-grails.plugins.disqus.shortname = "motoranger"
+grails.plugins.disqus.shortname = "ecranger"
 
 
 grails.taggable.preserve.case = true
@@ -199,9 +199,9 @@ aws.bucketName = ''
 
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'motoranger.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'motoranger.UserRole'
-grails.plugin.springsecurity.authority.className = 'motoranger.Role'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'ecranger.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'ecranger.UserRole'
+grails.plugin.springsecurity.authority.className = 'ecranger.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/j_spring_security_switch_user': ['ROLE_OPERATOR', 'ROLE_MANERGER', 'ROLE_ADMIN'],
     '/':                              ['permitAll'],
@@ -221,6 +221,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 grails.plugin.springsecurity.useSwitchUserFilter = true
 grails.plugin.springsecurity.rememberMe.alwaysRemember = true
 grails.plugin.springsecurity.rememberMe.persistent = true
-grails.plugin.springsecurity.rememberMe.persistentToken.domainClassName = 'motoranger.PersistentLogin'
+grails.plugin.springsecurity.rememberMe.persistentToken.domainClassName = 'ecranger.PersistentLogin'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/login/success'
 

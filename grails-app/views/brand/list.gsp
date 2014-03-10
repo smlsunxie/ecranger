@@ -1,5 +1,5 @@
 
-<%@ page import="motoranger.Brand" %>
+<%@ page import="ecranger.Brand" %>
 <!DOCTYPE html>
 <html>
 	<head>

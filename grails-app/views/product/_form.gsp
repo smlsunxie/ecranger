@@ -1,4 +1,4 @@
-<%@ page import="motoranger.Product" %>
+<%@ page import="ecranger.Product" %>
 
 
 <g:hasErrors bean="${productInstance}">
@@ -66,7 +66,7 @@
     <g:message code="product.brand.label" />
   </label>
   <div class="col-sm-10">
-    <g:select class="form-control" name="brand.id" from="${motoranger.Brand.list()}" 
+    <g:select class="form-control" name="brand.id" from="${ecranger.Brand.list()}" 
           noSelection="${['null':'請選擇...']}" optionKey="id" value="${productInstance?.brand?.id}" />
   </div>
 
@@ -80,7 +80,7 @@
     <g:message code="product.user.label" />
   </label>
   <div class="col-sm-10">
-    <g:select id="user" name="user.id" from="${motoranger.User.findById(productInstance?.user?.id)}" optionKey="id" value="${productInstance?.user?.id}" class="many-to-one" noSelection="['null': '']" class="form-control" />
+    <g:select id="user" name="user.id" from="${ecranger.User.findById(productInstance?.user?.id)}" optionKey="id" value="${productInstance?.user?.id}" class="many-to-one" noSelection="['null': '']" class="form-control" />
   </div>
 
 </div>

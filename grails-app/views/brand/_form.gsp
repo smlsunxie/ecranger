@@ -1,4 +1,4 @@
-<%@ page import="motoranger.Brand" %>
+<%@ page import="ecranger.Brand" %>
 
 
 
@@ -39,6 +39,6 @@
 		<g:message code="brand.type.label" default="Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="type" from="${motoranger.BrandType?.values()}" keys="${motoranger.BrandType.values()*.name()}" required="" value="${brandInstance?.type?.name()}"/>
+	<g:select name="type" from="${ecranger.BrandType?.values()}" keys="${ecranger.BrandType.values()*.name()}" required="" value="${brandInstance?.type?.name()}"/>
 </div>
 

@@ -2,18 +2,6 @@
   <g:homeNav />
 </li>
 
-<sec:ifAnyGranted roles="ROLE_CUSTOMER, ROLE_OPERATOR, ROLE_MANERGER">
-  
-
-  <li class="${controllerName=='part' ? 'active':''} single">
-    <g:link elementId="part-index" controller="part" action="index">
-      <g:message code="part.label" />
-      <i>store</i>
-    </g:link>
-  </li>
-
-</sec:ifAnyGranted>
-
 
 <sec:ifAnyGranted roles="ROLE_MANERGER, ROLE_OPERATOR">
   <li class="${controllerName=='summary' ? 'active':''} dropdown">
@@ -63,27 +51,19 @@
 </sec:ifAnyGranted>
 
 
-<li class="${controllerName=='store' && actionName=='index' ? 'active':''} single">
-  <g:link controller="store" action="index">
-    車行清單
-    <i>Stores</i>
-  </g:link>
-</li>
-
 <li class="${controllerName=='post' ? 'active':''} single">
   <g:link controller="post" action="portfolio">
-    文章
+    書籍
     <i>POST</i>
   </g:link>
 </li>
 
-<sec:ifNotGranted roles="ROLE_ADMIN">
-  <li class="${controllerName=='home' && actionName=='question' ? 'active':''} single">
-    <g:link controller="home" action="question">
-      意見回饋
-      <i>suggest</i>
-    </g:link>
-  </li>
-</sec:ifNotGranted>
+
+<li class="${controllerName=='post' ? 'active':''} single">
+  <g:link controller="post" action="portfolio">
+    聖經
+    <i>POST</i>
+  </g:link>
+</li>
 
 

@@ -7,7 +7,7 @@
     <g:message code="TagGroup.${params.group}" /><span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-      <g:each var="group" in="${motoranger.TagGroup.values()}">
+      <g:each var="group" in="${ecranger.TagGroup.values()}">
 
         <g:if test="${params.group.toString() != group.toString()}">
           <li >
@@ -43,7 +43,7 @@
                 
     <ul id="tagGroup" class="nav nav-pills nav-pills-portfolio">
 
-      <g:each var="group" in="${motoranger.TagGroup.values()}">
+      <g:each var="group" in="${ecranger.TagGroup.values()}">
 
         <li class="${ params.group.toString() == group.toString() ? 'active' : '' }">
           <g:link action="${actionName}" id="${eventInstance?.id}" params="[group: group]" ><g:message code="TagGroup.${group}" /></g:link>

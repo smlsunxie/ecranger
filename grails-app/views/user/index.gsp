@@ -1,5 +1,5 @@
 
-<%@ page import="motoranger.User" %>
+<%@ page import="ecranger.User" %>
 <!DOCTYPE html>
 <html>
 <head>

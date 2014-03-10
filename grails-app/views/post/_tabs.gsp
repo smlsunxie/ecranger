@@ -38,7 +38,7 @@
                     <span class="required-indicator">*</span>
                   </label>
                   <div class="col-sm-10">
-                    <g:select name="type" from="${motoranger.PostType?.values()}" keys="${motoranger.PostType.values()*.name()}" required="" value="${post?.type?.name()}"  valueMessagePrefix="PostType" class="form-control"  />
+                    <g:select name="type" from="${ecranger.PostType?.values()}" keys="${ecranger.PostType.values()*.name()}" required="" value="${post?.type?.name()}"  valueMessagePrefix="PostType" class="form-control"  />
                   </div>
                 </div>
 

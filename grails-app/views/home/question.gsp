@@ -12,7 +12,7 @@
     <div class="btn-group" id="actionbar">
            
 
-    	<a href="mailto:smlsun@gmail.com?subject=MotoRanger-意見回饋" class="btn btn-primary">
+    	<a href="mailto:smlsun@gmail.com?subject=ecranger-意見回饋" class="btn btn-primary">
 意見回饋</a>
 
     </div> 

@@ -1,4 +1,4 @@
-<%@ page import="motoranger.StoreCostDetail" %>
+<%@ page import="ecranger.StoreCostDetail" %>
 
 
 
@@ -39,6 +39,6 @@
 		<g:message code="storeCostDetail.store.label" default="Store" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="store" name="store.id" from="${motoranger.Store.list()}" optionKey="id" required="" value="${storeCostDetailInstance?.store?.id}" class="many-to-one"/>
+	<g:select id="store" name="store.id" from="${ecranger.Store.list()}" optionKey="id" required="" value="${storeCostDetailInstance?.store?.id}" class="many-to-one"/>
 </div>
 

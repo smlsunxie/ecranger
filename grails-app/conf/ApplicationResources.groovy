@@ -1,4 +1,4 @@
-def __bundleName = 'motoranger'
+def __bundleName = 'ecranger'
 
 modules = {
 

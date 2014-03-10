@@ -217,6 +217,6 @@ databaseChangeLog = {
 	}
 
 	changeSet(author: "Spooky (generated)", id: "1389670290769-21") {
-		addForeignKeyConstraint(baseColumnNames: "user_id", baseTableName: "part", constraintName: "FK3463F394F1E5B6", deferrable: "false", initiallyDeferred: "false", onDelete: "NO ACTION", onUpdate: "NO ACTION", referencedColumnNames: "id", referencedTableName: "user", referencedTableSchemaName: "motoranger", referencesUniqueColumn: "false")
+		addForeignKeyConstraint(baseColumnNames: "user_id", baseTableName: "part", constraintName: "FK3463F394F1E5B6", deferrable: "false", initiallyDeferred: "false", onDelete: "NO ACTION", onUpdate: "NO ACTION", referencedColumnNames: "id", referencedTableName: "user", referencedTableSchemaName: "ecranger", referencesUniqueColumn: "false")
 	}
 }

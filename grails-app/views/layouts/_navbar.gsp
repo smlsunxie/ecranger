@@ -9,17 +9,9 @@
                   <li id="alert_placeholder"></li>
               </ul>
               
-              <sec:ifAnyGranted roles="ROLE_OPERATOR, ROLE_MANERGER, ROLE_ADMIN">
-
-                <g:form action="query" controller="search" class="form-inline pull-right"> 
-                  <input type="text" name="q" class="form-control" placeholder="車牌或使用者" value="${params.q}">
-                </g:form>
-              </sec:ifAnyGranted>
-
-
-
-
-
+              <g:form action="query" controller="search" class="form-inline pull-right"> 
+                <input type="text" name="q" class="form-control" placeholder="全文檢索" value="${params.q}">
+              </g:form>
         </div>
 
     </div>

@@ -139,7 +139,7 @@
   </label>
   
   <div class="col-sm-10">
-    <g:select id="user" name="user.id" from="${motoranger.User.findById(partInstance?.user?.id)}" optionKey="id" value="${partInstance?.user?.id}" noSelection="['null': '']" class="form-control" />
+    <g:select id="user" name="user.id" from="${ecranger.User.findById(partInstance?.user?.id)}" optionKey="id" value="${partInstance?.user?.id}" noSelection="['null': '']" class="form-control" />
   </div>  
 
 </div> 
@@ -150,7 +150,7 @@
   </label>
 
   <div class="col-sm-10">
-    <g:select id="user" name="store.id" from="${motoranger.Store.findById(partInstance?.store?.id)}" optionKey="id" value="${partInstance?.store?.id}" noSelection="['null': '']" class="form-control" />
+    <g:select id="user" name="store.id" from="${ecranger.Store.findById(partInstance?.store?.id)}" optionKey="id" value="${partInstance?.store?.id}" noSelection="['null': '']" class="form-control" />
   </div>  
 
 

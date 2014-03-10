@@ -24,7 +24,7 @@
    <g:message code="event.name.label" />
   </label>
   <div class="col-sm-10">
-    <g:select class="form-control" name="head.id" from="${eventDetailInstance?.head ?: motoranger.Event.list()}" noSelection="${[null:'Select One...']}" optionKey="id" value="${eventDetailInstance?.head?.id}" />
+    <g:select class="form-control" name="head.id" from="${eventDetailInstance?.head ?: ecranger.Event.list()}" noSelection="${[null:'Select One...']}" optionKey="id" value="${eventDetailInstance?.head?.id}" />
   </div>
 
 </div>
@@ -36,7 +36,7 @@
    <g:message code="part.name.label" />
   </label>
   <div class="col-sm-10">
-    <g:select class="form-control" name="part.id" from="${eventDetailInstance?.part ? eventDetailInstance?.part : motoranger.Part.list()}" noSelection="${[null:'Select One...']}" optionKey="id" value="${eventDetailInstance?.part?.id}" />
+    <g:select class="form-control" name="part.id" from="${eventDetailInstance?.part ? eventDetailInstance?.part : ecranger.Part.list()}" noSelection="${[null:'Select One...']}" optionKey="id" value="${eventDetailInstance?.part?.id}" />
   </div>
 
 </div>

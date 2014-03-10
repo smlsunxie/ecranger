@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="event" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" scriptletClass="motoranger.QRCodeScriptlet" uuid="9637a67f-82f0-46a8-a6a3-018ff713150d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="event" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" scriptletClass="ecranger.QRCodeScriptlet" uuid="9637a67f-82f0-46a8-a6a3-018ff713150d">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="133"/>
@@ -137,7 +137,7 @@ where event.id=$P{event_id}]]>
 				<textElement textAlignment="Center">
 					<font size="10" isBold="false"/>
 				</textElement>
-				<text><![CDATA[http://motoranger.net]]></text>
+				<text><![CDATA[http://ecranger.net]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="199" y="4" width="157" height="17" uuid="e931f91a-9df5-42cb-82cd-46b68ad39a8b"/>
@@ -412,7 +412,7 @@ where event.id=$P{event_id}]]>
 					<font size="14" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["查看維修事件"]]></textFieldExpression>
-				<hyperlinkReferenceExpression><![CDATA["http://motoranger.net/event/show/"+$F{event_id}]]></hyperlinkReferenceExpression>
+				<hyperlinkReferenceExpression><![CDATA["http://ecranger.net/event/show/"+$F{event_id}]]></hyperlinkReferenceExpression>
 			</textField>
 			<textField hyperlinkType="Reference">
 				<reportElement x="199" y="147" width="145" height="29" forecolor="#0000FF" uuid="7a3fe062-aea2-4ed0-bf78-a5fbfd9e2bb4">
@@ -422,7 +422,7 @@ where event.id=$P{event_id}]]>
 					<font size="14" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["查看客戶詳細資料"]]></textFieldExpression>
-				<hyperlinkReferenceExpression><![CDATA["http://motoranger.net/user/show/"+$F{user_id}]]></hyperlinkReferenceExpression>
+				<hyperlinkReferenceExpression><![CDATA["http://ecranger.net/user/show/"+$F{user_id}]]></hyperlinkReferenceExpression>
 			</textField>
 			<textField hyperlinkType="Reference">
 				<reportElement x="400" y="147" width="145" height="29" forecolor="#0000FF" uuid="6112caba-6cc4-447b-b161-dbaf40d179be"/>
@@ -430,7 +430,7 @@ where event.id=$P{event_id}]]>
 					<font size="14" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["查看產品維修歷程"]]></textFieldExpression>
-				<hyperlinkReferenceExpression><![CDATA["http://motoranger.net/product/show/"+$F{product_id}]]></hyperlinkReferenceExpression>
+				<hyperlinkReferenceExpression><![CDATA["http://ecranger.net/product/show/"+$F{product_id}]]></hyperlinkReferenceExpression>
 			</textField>
 			<image>
 				<reportElement x="10" y="2" width="145" height="145" uuid="8b2aee82-323a-4fbc-a22a-c0bdabd1966d"/>

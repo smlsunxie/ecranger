@@ -24,22 +24,15 @@
 <sec:ifLoggedIn>
 
 
-    <sec:ifAnyGranted roles="ROLE_OPERATOR, ROLE_MANERGER">
-        <g:switchUser />
-    </sec:ifAnyGranted>
+  <sec:ifAnyGranted roles="ROLE_OPERATOR, ROLE_MANERGER">
+      <g:switchUser />
+  </sec:ifAnyGranted>
 
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" >
-      導覽
-      <i>Tour</i>
-    </a>
-    <ul class="dropdown-menu">
-      <li>
-        <g:link controller="user" action="show" params="[tour: true]">
-          基本導覽
-        </g:link>
-      </li>
-    </ul>
+  <li class="single">
+    <g:link controller="event" action="showStatusStart">
+      購物車
+      <i>Cart</i>
+    </g:link>
   </li>
   
 

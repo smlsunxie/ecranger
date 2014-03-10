@@ -1,17 +1,12 @@
-<g:set var="stickName" value="${eventInstance.status == motoranger.ProductStatus.UNFIN? 'alert' : 'success'}" />
 
 <div class="row">
   <div id="eventStick" class="contact-info col-sm-3 col-md-3"> 
 
-  	<g:render template="/event/stick" model="['stickName': stickName]" /> 
+  	<g:render template="/event/stick" /> 
   
   </div>
-  <div id="eventContentTable" class="contact-info col-sm-3 col-md-3"> 
-  	<h2>&nbsp;</h2>
-    <g:render template="/event/content" />
-  </div>
 
-  <div class="contact-info col-sm-6 col-md-6">  
+  <div class="contact-info col-sm-9 col-md-9">  
     <g:render template="/eventDetail/contentWithDetails" />
   </div>
 </div>
