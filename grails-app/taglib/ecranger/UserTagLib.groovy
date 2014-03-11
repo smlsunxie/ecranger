@@ -112,12 +112,11 @@ class UserTagLib {
     def userMenu={ attrs, body ->
         def currentUser = userService.currentUser()
         def userMenu = ""
-        if(userService.isManerger() || userService.isOperator()){
-            def userShowTitle = message(code:"user.show.label")
-            def userShowLink = link(controller: "user", action: "show", id: currentUser.id){userShowTitle}
-            userMenu += '<li>'+userShowLink+'</li>'
-                        
-        }
+
+        def userShowTitle = message(code:"user.show.label")
+        def userShowLink = link(controller: "user", action: "show", id: currentUser.id){userShowTitle}
+        userMenu += '<li>'+userShowLink+'</li>'
+
 
         def userEditTitle = message(code:"user.edit.label")
         def userEditLink = link(controller: "user", action: "edit", id: currentUser.id){userEditTitle}

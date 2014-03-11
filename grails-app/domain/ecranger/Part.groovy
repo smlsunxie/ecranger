@@ -1,10 +1,6 @@
 package ecranger
-import org.grails.taggable.Taggable
 
-import groovy.transform.EqualsAndHashCode
-
-@EqualsAndHashCode
-class Part implements Taggable {
+class Part {
     // static searchable = true
 		String name
 		String title

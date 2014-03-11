@@ -8,6 +8,7 @@ import grails.transaction.Transactional
 class ProductController {
 	static layout="bootstrap"
     def userService
+    def tagQueryService
 
     @Secured(['ROLE_CUSTOMER', 'ROLE_OPERATOR', 'ROLE_MANERGER'])
     def create(){ 
@@ -39,6 +40,12 @@ class ProductController {
         }
 
         productInstance.save flush:true, failOnError: true
+
+
+
+        if(params?.tags)
+            partInstance.tags = params.list("tags")
+        else partInstance.tags=["未分類"]
 
         request.withFormat {
             '*' { 
@@ -135,6 +142,12 @@ class ProductController {
 
         def currentUser = userService.currentUser()
 
+        if(!currentUser){
+            flash.message = "請先登入帳號，還沒有帳號？請先進行註冊"
+            redirect controller: "login", action: "auth"
+            return      
+        }
+
         def newstEvent = Event.findByUserAndStatus(currentUser, EventStatus.START)
 
         if(!newstEvent){
@@ -157,10 +170,19 @@ class ProductController {
     }
 
     def portfolio(){
+        
         def type = params.type as ecranger.ProductType
-        def products = Product.findAllByType(type)
+        def allProducts = Product.findAllByType(type)
 
-        [products: products]
+        def tags = tagQueryService.getUniTag(allProducts)
+        def products = tagQueryService.getProductsWithTag(params)
+
+        if(!products){
+            products = allProducts
+        }
+
+
+        [products: products, tags: tags]
     }
 
     protected void notFound() {

@@ -28,11 +28,6 @@
     購物總額： ${eventInstance.totalPrice}
   </p>
 
-  <g:if test="${actionName != 'pickPartAddDetail'}" >
-    <g:link class="btn btn-primary" controller="event" action="pickPartAddDetail" id="${eventInstance?.id}">新增維修</g:link>
-
-  </g:if>
-
 
 </div>
 

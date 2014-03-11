@@ -71,12 +71,20 @@ class BootStrap {
         def productBook2 = new Product(type: ecranger.ProductType.BOOK, name: "productBook2", title: "同湖異舟-與身心障礙人士其家庭同行").save(failOnError: true, flush: true)
         def productBook3 = new Product(type: ecranger.ProductType.BOOK, name: "productBook3", title: "40天重新尋得生命泉源").save(failOnError: true, flush: true)
         def productBook4 = new Product(type: ecranger.ProductType.BOOK, name: "productBook4", title: "王者尊榮-榮耀大顯現").save(failOnError: true, flush: true)
+        productBook1.tags = ["傳記"]
+        productBook2.tags = ["家庭"]
+        productBook3.tags = ["其他"]
+        productBook4.tags = ["其他"]
+
 
         def productMusic1 = new Product(type: ecranger.ProductType.MUSIC, name: "productMusic1", title: "蓋瑟音樂使命團 年度詩歌精選CD").save(failOnError: true, flush: true)
         def productMusic2 = new Product(type: ecranger.ProductType.MUSIC, name: "productMusic2", title: "娜塔莉 葛蘭/颶風").save(failOnError: true, flush: true)
         def productMusic3 = new Product(type: ecranger.ProductType.MUSIC, name: "productMusic3", title: "動物園道64號").save(failOnError: true, flush: true)
         def productMusic4 = new Product(type: ecranger.ProductType.MUSIC, name: "productMusic4", title: "繁茂復活的春天").save(failOnError: true, flush: true)
-
+        productMusic1.tags = ["古典"]
+        productMusic2.tags = ["詩歌"]
+        productMusic3.tags = ["其他"]
+        productMusic4.tags = ["其他"]
 
     }
 }

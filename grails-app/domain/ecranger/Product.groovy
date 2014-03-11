@@ -1,7 +1,8 @@
 package ecranger
+import org.grails.taggable.Taggable
 
 
-class Product {
+class Product implements Taggable {
 
     static searchable = true
 
