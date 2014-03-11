@@ -6,49 +6,41 @@
 </head>
 <body>
 
-  <div class="row text-center" id="actionbar">
+  <div class="portfolio-grid-1 main-block">
+    <div id="portfolio" class="row show-grid">                   
+      <g:each var="product" in="${searchResult?.results}">
+        <div class="col-md-3 col-sm-3 small hp-wrapper element}">        
+          <g:link controller="product" action="show" id="${product.id}"><g:img alt="" dir='bizstrap/img' file="460_arrow_2_hover.png" class="hover-shade" />
+          </g:link>
+          
+           <g:link controller="product" action="show" id="${product.id}"  class="top-link">    
+              <g:img uri="/attachment/show?name=${product.name}&file=${product.mainImage}" class="img-responsive"/>
+          </g:link>
 
-    <div class="col-sm-12 col-md-12">           
-
-        <g:link  class="btn btn-primary" controller="product" action="create" params="[name: params.q]" >以 ${params.q} 建立產品</g:link>
-
-
-    </div>
-
-  </div>
-  <div class="row show-grid features-block mini-blocks">
-    <g:each in="${searchResult?.results}" var="productInstance" status="i" >
-
-
-      <div class="contact-info col-sm-4 col-md-4 block2">
-        <div class="mini-wrapper">
-
-        <g:render template="/product/content" model="[productInstance: productInstance]" />
-
+          <div class="bottom-block">
+              <g:link controller="product" action="show" id="${product.id}">${product.title}</g:link>
+              <p>${product.description}</p>
+          </div>
         </div>
-      </div>
-
-
-    </g:each>
+      </g:each>
+    </div>
   </div>
+
 
 
   <g:if test="${searchResult?.results}"> <!-- or you could use test="${searchResult?.results}" -->
 
     <div class="row text-center">
       <ul class="pagination">
-
         <g:paginate action="query" params="[q: params.q]" total="${searchResult.total}" prev="&lt; previous" next="next &gt;"/>
       <ul>   
-
 
     </div>
 
   </g:if>
   <g:else>
     <div class="row text-center">
-        查無資料
-
+      查無資料
     </div>  
   </g:else>
 

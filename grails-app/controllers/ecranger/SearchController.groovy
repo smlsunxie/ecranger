@@ -3,13 +3,12 @@ import grails.plugin.springsecurity.annotation.Secured
 class SearchController {
 	static layout="bootstrap"
 
-    @Secured(['ROLE_OPERATOR', 'ROLE_MANERGER', 'ROLE_ADMIN'])
     def query(){
 
         def productSearchResult
         def userSearchResult
 
-        params.max= 6
+        params.max = 12
 
         if(params.q && params.q != ''){
             productSearchResult = Product.search(params.q+" OR *"+params.q+"*",params)
@@ -23,14 +22,7 @@ class SearchController {
 
         }
 
-
-        if(productSearchResult?.results.size() == 1){
-        	def product = productSearchResult?.results.get(0)
-        	redirect(controller:"product", action:'show', id: product.id)
-        }
-        else {
-        	render (view:"result", model:[searchResult:productSearchResult])
-        }
+        render (view:"result", model:[searchResult:productSearchResult])
 
 
     }
@@ -46,17 +38,6 @@ class SearchController {
     }
 
 
-    @Secured(['ROLE_CUSTOMER', 'ROLE_OPERATOR', 'ROLE_MANERGER'])
-    def createOrLinkProductOwner(){
 
-        def product = Product.findById(params?.product?.id)
-        def user = User.findByUsername(product?.name)
-
-        if(!user){
-            redirect controller: 'user', action: 'create', params: ['product.id': params?.product?.id]
-        }else {
-            redirect controller: 'user', action: 'edit', id: user.id, params: ['product.id': params?.product?.id]
-        }
-    }
 
 }
