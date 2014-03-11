@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  <sec:ifAnyGranted roles="ROLE_CUSTOMER, ROLE_OPERATOR, ROLE_MANERGER">
+  <sec:ifAnyGranted roles="ROLE_MANERGER">
     <div class="row" id="actionbar">
 
       <div class="col-sm-12 col-md-12">           
@@ -31,7 +31,7 @@
     <div class="col-sm-12 col-md-12">           
 
         <g:link elementId="product-addToCart" class="btn btn-primary" action="addToCart" id="${productInstance?.id}">放入購物車</g:link>
-        <g:link elementId="product-edit" class="btn btn-primary" action="edit" id="${productInstance?.id}">直接購買</g:link>
+
 
     </div>
 

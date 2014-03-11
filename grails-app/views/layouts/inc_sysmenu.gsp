@@ -51,18 +51,17 @@
 </sec:ifAnyGranted>
 
 
-<li class="${controllerName=='post' ? 'active':''} single">
-  <g:link controller="post" action="portfolio">
+<li class="${controllerName=='product' && params.type=="BOOK" ? 'active':''} single">
+  <g:link controller="product" action="portfolio" params="[type: 'BOOK']">
     書籍
-    <i>POST</i>
+    <i>BOOK</i>
   </g:link>
 </li>
 
-
-<li class="${controllerName=='post' ? 'active':''} single">
-  <g:link controller="post" action="portfolio">
-    聖經
-    <i>POST</i>
+<li class="${controllerName=='product' && params.type=="MUSIC" ? 'active':''} single">
+  <g:link controller="product" action="portfolio" params="[type: 'MUSIC']">
+    音樂
+    <i>MUSIC</i>
   </g:link>
 </li>
 

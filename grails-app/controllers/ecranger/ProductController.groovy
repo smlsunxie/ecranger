@@ -156,6 +156,13 @@ class ProductController {
 
     }
 
+    def portfolio(){
+        def type = params.type as ecranger.ProductType
+        def products = Product.findAllByType(type)
+
+        [products: products]
+    }
+
     protected void notFound() {
         request.withFormat {
             '*'{                 

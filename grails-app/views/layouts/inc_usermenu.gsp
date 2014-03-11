@@ -28,7 +28,7 @@
       <g:switchUser />
   </sec:ifAnyGranted>
 
-  <li class="single">
+  <li class="${controllerName=='event' && actionName=='show' ?'active':''} single">
     <g:link controller="event" action="showStatusStart">
       購物車
       <i>Cart</i>
